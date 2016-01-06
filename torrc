@@ -1,0 +1,11 @@
+
+# tor configuration for NavigaTor #
+
+SocksListenAddress 127.0.0.1:9050
+ControlPort 9051
+WarnUnsafeSocks 0
+CircuitBuildTimeout 120
+LearnCircuitBuildTimeout 0
+UseMicrodescriptors 0
+SafeLogging 0
+

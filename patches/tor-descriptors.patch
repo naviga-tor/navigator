@@ -1,0 +1,19 @@
+# Author: Robert Annessi <robert.annessi@nt.tuwien.ac.at>
+# License: GPLv2 (2013-2015)
+
+diff -urN tor-0.2.3.25/src/or/routerlist.c tor-0.2.3.25.desc/src/or/routerlist.c
+--- tor-0.2.3.25/src/or/routerlist.c	2012-11-19 22:24:39.000000000 +0100
++++ tor-0.2.3.25.desc/src/or/routerlist.c	2013-07-21 03:37:43.514302493 +0200
+@@ -5044,10 +5044,10 @@
+ 
+ /* What fraction of desired server descriptors do we need before we will
+  * build circuits? */
+-#define FRAC_USABLE_NEEDED .75
++#define FRAC_USABLE_NEEDED .95
+ /* What fraction of desired _exit_ server descriptors do we need before we
+  * will build circuits? */
+-#define FRAC_EXIT_USABLE_NEEDED .5
++#define FRAC_EXIT_USABLE_NEEDED .95
+ 
+   if (num_present < num_usable * FRAC_USABLE_NEEDED) {
+     tor_snprintf(dir_info_status, sizeof(dir_info_status),

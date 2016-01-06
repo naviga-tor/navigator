@@ -1,0 +1,15 @@
+# Author: Robert Annessi <robert.annessi@nt.tuwien.ac.at>
+# License: GPLv2 (2013-2015)
+
+diff -urN tor-0.2.3.25/src/or/circuitbuild.c tor-0.2.3.25.cbt/src/or/circuitbuild.c
+--- tor-0.2.3.25/src/or/circuitbuild.c	2012-11-19 22:24:38.000000000 +0100
++++ tor-0.2.3.25.cbt/src/or/circuitbuild.c	2013-07-18 05:54:20.364768322 +0200
+@@ -2263,6 +2263,8 @@
+         long timediff;
+         tor_gettimeofday(&end);
+         timediff = tv_mdiff(&circ->_base.timestamp_created, &end);
++        log_info(LD_CIRC, "circuit %u built in %ldmsec", 
++                 circ->global_identifier, timediff);
+ 
+         /*
+          * If the circuit build time is much greater than we would have cut
