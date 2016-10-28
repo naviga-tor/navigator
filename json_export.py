@@ -13,7 +13,7 @@ from json import dumps
 from argparse import ArgumentParser
 from os.path import exists
 
-from truncatedata import Probedata
+from r9 import Probestat
 
 
 def _main():
@@ -35,8 +35,10 @@ def _main():
                     if len(probe.bws) > 0 and isinstance(probe.bws[0], int):
                         bw = 5242880/(probe.bws[0]/1000.0)*8/1024/1024
                     g.write(dumps((date, probe.entry, probe.middle, probe.exit,
-                                   probe.cbt, "", "", probe.rtts, "", "",
-                                   probe.perfs, bw, "", "", ""))+'\n')
+                                   probe.cbt, probe.cbtp, probe.cbtb,
+                                   probe.rtts, probe.rttp, probe.rttb,
+                                   probe.ttfbs, bw, probe.cong, probe.congp,
+                                   probe.congb))+'\n')
             except EOFError:
                 pass
 
